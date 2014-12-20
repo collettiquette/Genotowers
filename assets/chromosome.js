@@ -1,4 +1,4 @@
-var chromosome = {
+genotower.chromosome = {
     x : 0,
     y : 0,
     
