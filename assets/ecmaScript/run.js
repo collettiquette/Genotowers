@@ -18,12 +18,9 @@ genotower.run = {
     },
 
     create : function () {
-        console.log("genotower.run.create has been called.");
         genotower.run.game.world.setBounds(0, 0, genotower.config.WORLD_WIDTH, genotower.config.WORLD_HEIGHT);
         genotower.run.game.input.addPointer();
-        genotower.map.createFloor();
-        console.log("...SUCCESSFULLY!");
-
+        genotower.map.createFloor(genotower.config.MAP_WIDTH, genotower.config.MAP_HEIGHT);
     },
         
     update : function () {

@@ -1,4 +1,7 @@
 genotower.config = {
+    MAP_WIDTH : 10,
+    MAP_HEIGHT : 10,
+    
     SCREEN_WIDTH : 320,
     SCREEN_HEIGHT : 320,
     WORLD_WIDTH : 320,
