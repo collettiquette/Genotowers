@@ -1,24 +1,27 @@
 genotower.run = {
-
+    
+    that : this,
+    
     start : function () {
-        this.game = new Phaser.Game(genotower.config.SCREEN_WIDTH, 
+        console.log(that);
+        that.game = new Phaser.Game(genotower.config.SCREEN_WIDTH, 
     	    genotower.config.SCREEN_HEIGHT, Phaser.AUTO, 'genotowerDefense',
-    	    {preload: genotower.run.preload, create: genotower.run.create, update: 
-    	    genotower.run.update, render: genotower.run.render});
+    	    {preload: that.preload, create: that.create, update: 
+    	    that.update, render: that.render});
     },
     
     preload : function () {
-        this.game.load.image('tower', genotower.config.TOWER_IMAGE);
-        this.game.load.image('wall', genotower.config.WALL_IMAGE);
-        this.game.load.image('floor', genotower.config.FLOOR_IMAGE);
-        this.game.load.image('torch', genotower.config.TORCH_IMAGE);
-        this.game.load.image('monster', genotower.config.MONSTER_IMAGE);
-        this.game.load.image('monsterWounded', genotower.config.MONSTER_WOUNDED_IMAGE);
+        that.game.load.image('tower', genotower.config.TOWER_IMAGE);
+        that.game.load.image('wall', genotower.config.WALL_IMAGE);
+        that.game.load.image('floor', genotower.config.FLOOR_IMAGE);
+        that.game.load.image('torch', genotower.config.TORCH_IMAGE);
+        that.game.load.image('monster', genotower.config.MONSTER_IMAGE);
+        that.game.load.image('monsterWounded', genotower.config.MONSTER_WOUNDED_IMAGE);
     },
 
     create : function () {
-        this.game.world.setBounds(0, 0, genotower.config.WORLD_WIDTH, genotower.config.WORLD_HEIGHT);
-        this.game.input.addPointer();
+        that.game.world.setBounds(0, 0, genotower.config.WORLD_WIDTH, genotower.config.WORLD_HEIGHT);
+        that.game.input.addPointer();
         genotower.map.createFloor();
     },
         
@@ -28,5 +31,6 @@ genotower.run = {
     render : function () {
     }
 };
+
 
 window.onload = genotower.run.start;
