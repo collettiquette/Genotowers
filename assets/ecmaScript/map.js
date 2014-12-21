@@ -2,11 +2,19 @@ genotower.map = {
     
     tiles : [],
     
-    generateFloor : function (maxX, maxY) {
-        for (i = 0; i < maxX; i += 1) {
-            genotower.map.tiles.push([]);
-            for (j = 0; j < maxY; j += 1) {
-                genotower.map.tiles[i].push(Object.create())
+    createFloor : function (maxX, maxY) {
+        var y = 0,
+            x = 0,
+            floor = null;
+        
+        
+        for (x = 0; x < maxX; x += 1) {
+            this.tiles.push([]);
+            for (y = 0; y < maxY; y += 1) {
+                floor = Object.create(genotower.floor);
+                floor.setPosition(x, y);
+                floor.create();
+                this.tiles[x].push(floor);
             }
         }
     }
