@@ -7,9 +7,13 @@ genotower.run = {
     	    this.update, render: this.render});
     },
     
-
     preload : function () {
-    
+        this.game.load.image('tower', genotower.config.TOWER_IMAGE);
+        this.game.load.image('wall', genotower.config.WALL_IMAGE);
+        this.game.load.image('floor', genotower.config.FLOOR_IMAGE);
+        this.game.load.image('torch', genotower.config.TORCH_IMAGE);
+        this.game.load.image('monster', genotower.config.MONSTER_IMAGE);
+        this.game.load.image('monsterWounded', genotower.config.MONSTER_WOUNDED_IMAGE);
     },
 
     create : function () {
