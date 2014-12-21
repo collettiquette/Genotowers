@@ -9,6 +9,7 @@ genotower.map = {
         
         
         for (x = 0; x < maxX; x += 1) {
+            console.log("genotower.map.createFloor's this is equal to ", this);
             this.tiles.push([]);
             for (y = 0; y < maxY; y += 1) {
                 floor = Object.create(genotower.floor);

@@ -26,7 +26,7 @@ genotower.chromosome = {
     },
     
     translatePosition : function (arrayCoordinate) {
-        arrayCoordinate === 0 ? 15 : ((arrayCoordinate*32)+15);
+        return arrayCoordinate === 0 ? 0 : (arrayCoordinate*32);
     },
     
     place : function (imageKey) {
