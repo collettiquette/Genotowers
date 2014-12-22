@@ -24,9 +24,11 @@ genotower.run = {
     },
         
     update : function () {
+
     },
 
     render : function () {
+        
     }
 };
 

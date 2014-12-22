@@ -32,7 +32,5 @@ genotower.chromosome = {
     place : function (imageKey) {
         this.sprite = genotower.run.game.add.sprite(this.translatePosition(this.x),
                 this.translatePosition(this.y), imageKey);
-    }
-
-    
+    }    
 };

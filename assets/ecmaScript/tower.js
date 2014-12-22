@@ -7,4 +7,3 @@ genotower.tower.create = function () {
 genotower.tower.shoot = function () {
     
 };
-

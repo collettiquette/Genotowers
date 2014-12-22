@@ -7,9 +7,6 @@ var genotower = {
     generateGenotype : function (walls, towers) {
         
     },
-    
-    
-
 };
 
 // Defines Object.create if it doesn't exist.
