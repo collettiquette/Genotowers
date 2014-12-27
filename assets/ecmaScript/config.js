@@ -1,4 +1,8 @@
 genotower.config = {
+    
+    TOWER_AMOUNT : 10,
+    WALL_AMOUNT : 30,
+    
     MAP_WIDTH : 10,
     MAP_HEIGHT : 10,
     

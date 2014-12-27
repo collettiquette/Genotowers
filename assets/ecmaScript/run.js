@@ -20,7 +20,7 @@ genotower.run = {
     create : function () {
         genotower.run.game.world.setBounds(0, 0, genotower.config.WORLD_WIDTH, genotower.config.WORLD_HEIGHT);
         genotower.run.game.input.addPointer();
-        genotower.map.createFloor(genotower.config.MAP_WIDTH, genotower.config.MAP_HEIGHT);
+        genotower.map.createFloor();
     },
         
     update : function () {

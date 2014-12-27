@@ -3,6 +3,7 @@ genotower.chromosome = {
     x : 0,
     y : 0,
     sprite : {},
+    impassable : false,
     
     shouldMutate : function (mutationRate) {
         return Math.random() <= mutationRate;
