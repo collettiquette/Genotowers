@@ -11,6 +11,11 @@ genotower.config = {
     WORLD_WIDTH : 320,
     WORLD_HEIGHT : 320,
     
+    START_X : 5,
+    START_Y : 9,
+    END_X : 5,
+    END_Y : 0,
+    
     TOWER_IMAGE : "assets/images/tower.png",
     WALL_IMAGE : "assets/images/wall.png",
     FLOOR_IMAGE : "assets/images/floor.png",

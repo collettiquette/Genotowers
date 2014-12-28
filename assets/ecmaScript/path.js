@@ -1,4 +1,5 @@
 genotower.path = {
+    currentPath : null,
     
     translateGrid : function (oldGrid) {
         var x = 0,
@@ -9,13 +10,13 @@ genotower.path = {
             newGrid.push([]);
             
             for (y = 0; y < genotower.config.MAP_HEIGHT; y += 1) {
-                newGrid[x].push(Number(oldGrid[x][y].impassable));
+                newGrid[x].push(oldGrid[x][y].impassable);
             }
         }
         return newGrid;
     },
     
-    checkPath: function () {
-        var pathFinder = new EasyStar.js();
-    }
+    setPath : function (grid) {
+        this.currentPath = genotower.aStar(grid, [5, 0], [4, 9]);
+    }    
 };
