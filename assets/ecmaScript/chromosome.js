@@ -14,6 +14,8 @@ genotower.chromosome = {
         this.y = y;
     },
     
+    
+    
     changeInPosition : function (mutationDegree) {
         return Math.floor(Math.random() * mutationDegree);
     },

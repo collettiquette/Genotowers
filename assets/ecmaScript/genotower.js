@@ -7,17 +7,29 @@ var genotower = {
         return Math.random() < 0.5 ? -1 * i : i;
     },
     
-    generateGenotype : function (walls, towers) {
-        
+    placeObstacle : function (obstacle, count) {
+        var i = 0,
+            randomPosition = null,
+            obstacleList = [];
+
+        for (i = 0; i < count; i += 1) {
+            currentObstacle = Object.create(obstacle);
+            randomPosition = genotower.map.getRandomPosition();
+            
+            while (genotower.map.tiles[randomPosition[0]][randomPosition[1]].impassable) {
+                randomPosition = genotower.map.getRandomPosition();
+            }
+            
+            genotower.map.tiles[randomPosition[0]][randomPosition[1]] = currentObstacle; 
+            currentObstacle.setPosition(randomPosition[0], randomPosition[1]);
+            obstacleList.push(currentObstacle);
+        }
+        return obstacleList;
     },
-    
-    createWalls : function (wallCount) {
-        var wall = null;
-        
-        for (w = 0; w < wallCount; w += 1) {
-            wall = Object.create(genotower.wall);
-//            wall.setPosition();
-        }   
+
+    generateGenotype : function (wallCount, towerCount) {
+        this.walls = this.placeObstacle(genotower.wall, wallCount);
+        this.towers = this.placeObstacle(genotower.tower, towerCount);
     }
 };
 

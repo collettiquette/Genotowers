@@ -2,7 +2,7 @@ genotower.map = {
     
     tiles : [],
     
-    createFloor : function () {
+    initialize : function () {
         var y = 0,
             x = 0,
             w = 0,
@@ -15,9 +15,24 @@ genotower.map = {
             for (y = 0; y < genotower.config.MAP_HEIGHT; y += 1) {
                 floor = Object.create(genotower.floor);
                 floor.setPosition(x, y);
-                floor.create();
                 this.tiles[x].push(floor);
             }
         }
+    },
+    
+    draw : function () {
+
+        for (x = 0; x < genotower.config.MAP_WIDTH; x += 1) {
+
+            for (y = 0; y < genotower.config.MAP_HEIGHT; y += 1) {
+                this.tiles[x][y].create();
+            }
+        }
+    },
+    
+    getRandomPosition : function () {
+         return [(Math.floor(Math.random() * 
+                genotower.config.MAP_WIDTH)), (Math.floor(Math.random() * 
+                genotower.config.MAP_HEIGHT))];
     }
 };
