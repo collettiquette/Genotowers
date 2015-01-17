@@ -9,6 +9,8 @@ genotower.map = {
             t = 0,
             floor = null;
         
+        this.tiles = [];
+        
         for (x = 0; x < genotower.config.MAP_WIDTH; x += 1) {
             this.tiles.push([]);
             
