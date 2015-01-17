@@ -14,6 +14,7 @@ var genotower = {
 
         for (i = 0; i < count; i += 1) {
             currentObstacle = Object.create(obstacle);
+            console.log(currentObstacle);
             randomPosition = genotower.map.getRandomPosition();
             
             while (genotower.map.tiles[randomPosition[0]][randomPosition[1]].impassable) {
