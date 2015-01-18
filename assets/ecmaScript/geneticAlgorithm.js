@@ -1,3 +1,8 @@
 genotower.geneticAlgorithm = {
     
-}
+    
+    evolve : function () {
+        
+    
+    }
+};
