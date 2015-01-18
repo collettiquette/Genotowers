@@ -1,9 +1,8 @@
 {
-    "name": "TicTapToe",
+    "name": "Genotowers",
     "version": "0.0.1",
-    "description": "Whaddafuck do you think it is, numb-nuts?",
+    "description": "Organizes a tower defense based on a genetic algorithm.",
     "dependencies": {
-        "express": "4.10.2",
-        "socket.io": "1.2.0"
+        "express": "4.10.2"
     }
 }
