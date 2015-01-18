@@ -1,6 +1,6 @@
 genotower.path = {
     currentPath : null,
-    
+        
     translateGrid : function (oldGrid) {
         var x = 0,
             y = 0,
@@ -17,6 +17,14 @@ genotower.path = {
     },
     
     setPath : function () {
-        this.currentPath = genotower.aStar(this.translateGrid(genotower.map.tiles), [genotower.config.START_X, genotower.config.START_Y], [genotower.config.END_X, genotower.config.END_Y]);
-    }    
+        this.currentPath = genotower.aStar(this.translateGrid(genotower.map.tiles), 
+                [genotower.config.START_X, genotower.config.START_Y], 
+                [genotower.config.END_X, genotower.config.END_Y]);
+    },
+    
+    isValid : function () {
+        genotower.path.setPath();
+        return !(genotower.path.currentPath.length === 0);
+    }
+
 };

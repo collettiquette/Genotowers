@@ -17,9 +17,17 @@ genotower.map = {
             for (y = 0; y < genotower.config.MAP_HEIGHT; y += 1) {
                 floor = Object.create(genotower.floor);
                 floor.setPosition(x, y);
-                this.tiles[x].push(floor);
             }
         }
+    },
+    
+    swapTiles : function (oldTile, newTile) {
+        var x = newTile.x,
+            y = newTile.y;
+
+        newTile.setPosition(oldTile.x, oldTile.y);
+        oldTile.setPosition(x, y);
+
     },
     
     draw : function () {
@@ -36,5 +44,10 @@ genotower.map = {
          return [(Math.floor(Math.random() * 
                 genotower.config.MAP_WIDTH)), (Math.floor(Math.random() * 
                 genotower.config.MAP_HEIGHT))];
+    },
+    
+        checkBounds : function (x, y) {
+        return ((x < genotower.config.MAP_WIDTH) && (x >= 0) &&
+                (y < genotower.config.MAP_HEIGHT) && (y >= 0));
     }
 };

@@ -9,23 +9,26 @@ genotower.chromosome = {
         return Math.random() <= mutationRate;
     },
     
-    setPosition : function (x, y) {
+    setPosition : function (x, y) {    
         this.x = x;
         this.y = y;
+        genotower.map.tiles[x][y] = this;
     },
-    
-    
     
     changeInPosition : function (mutationDegree) {
         return Math.floor(Math.random() * mutationDegree);
     },
     
-    mutate : function (mutationRate, mutationDegree) {
+    mutate : function (mutationDegree) {
+        var newX = null,
+            newY = null;
         
-        if (this.shouldMutate(mutationRate)) {
-            this.x += genotower.randomSign(this.changeInPosition(mutationDegree));
-            this.y += genotower.randomSign(this.changeInPosition(mutationDegree));
-        }
+        do {
+            newX = this.x + genotower.randomSign(this.changeInPosition(mutationDegree));
+            newY = this.y + genotower.randomSign(this.changeInPosition(mutationDegree));
+        } while (!genotower.map.checkBounds(newX, newY))
+            
+        genotower.map.swapTiles(this, genotower.map.tiles[newX][newY]);
     },
     
     translatePosition : function (arrayCoordinate) {

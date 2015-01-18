@@ -29,20 +29,12 @@ var genotower = {
 
     generateGenotype : function (wallCount, towerCount) {
         
-        genotower.path.currentPath = [];
-        
-        while (genotower.path.currentPath.length === [].length) {
-            console.log(genotower.path.currentPath);
-            console.log(genotower.path.currentPath.length === [].length);
+        do {
             genotower.map.initialize();
             this.walls = this.placeObstacle(genotower.wall, wallCount);
             this.towers = this.placeObstacle(genotower.tower, towerCount);
-            
             genotower.path.setPath();
-            console.log(genotower.path.currentPath);
-            console.log(genotower.path.currentPath.length === [].length);
-
-        }
+        } while (!genotower.path.isValid())
     }
 };
 

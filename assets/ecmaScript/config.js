@@ -21,5 +21,8 @@ genotower.config = {
     FLOOR_IMAGE : "assets/images/floor.png",
     TORCH_IMAGE : "assets/images/torch.png",
     MONSTER_IMAGE : "assets/images/monster.png",
-    MONSTER_WOUNDED_IMAGE : "assets/images/monsterWounded.png"
+    MONSTER_WOUNDED_IMAGE : "assets/images/monsterWounded.png",
+    
+    MUTATION_RATE : .05,
+    MUTATION_DEGREE : 2
 };
