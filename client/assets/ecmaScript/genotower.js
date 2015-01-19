@@ -1,12 +1,12 @@
 var genotower = {
-    
+
     walls : [],
     towers : [],
-    
+
     randomSign : function (i){
         return Math.random() < 0.5 ? -1 * i : i;
     },
-    
+
     placeObstacle : function (obstacle, count) {
         var i = 0,
             randomPosition = null,
@@ -15,12 +15,12 @@ var genotower = {
         for (i = 0; i < count; i += 1) {
             currentObstacle = Object.create(obstacle);
             randomPosition = genotower.map.getRandomPosition();
-            
+
             while (genotower.map.tiles[randomPosition[0]][randomPosition[1]].impassable || (randomPosition[0] === genotower.config.START_X && randomPosition[1] === genotower.config.START_Y)) {
                 randomPosition = genotower.map.getRandomPosition();
             }
-            
-            genotower.map.tiles[randomPosition[0]][randomPosition[1]] = currentObstacle; 
+
+            genotower.map.tiles[randomPosition[0]][randomPosition[1]] = currentObstacle;
             currentObstacle.setPosition(randomPosition[0], randomPosition[1]);
             obstacleList.push(currentObstacle);
         }
@@ -28,12 +28,12 @@ var genotower = {
     },
 
     generateGenotype : function (wallCount, towerCount) {
-        
+
         do {
             genotower.map.initialize();
             this.walls = this.placeObstacle(genotower.wall, wallCount);
             this.towers = this.placeObstacle(genotower.tower, towerCount);
-            genotower.path.setPath();
+            genotower.path.setPath(genotower.path.translateTiles());
         } while (!genotower.path.isValid())
     }
 };
