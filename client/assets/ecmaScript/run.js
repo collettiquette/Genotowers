@@ -39,5 +39,3 @@ genotower.run = {
         
     }
 };
-
-window.onload = genotower.run.start;

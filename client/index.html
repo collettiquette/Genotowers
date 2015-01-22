@@ -4,7 +4,27 @@
         <meta charset="UTF-8" />
         <title>Genotower Defense</title>
     </head>
-    <body>
+    <body ng-app ="genotowerApp">
+        <div ng-controller="genotowerCtrl">
+            <h1>
+            Genotowers
+            </h1>
+
+            <div>
+                <span>{{ "Mutation Rate: " + mutationRate }}%</span>
+            </div>
+            
+            <input type="range" min="0" max="100" ng-model="mutationRate">
+            
+            <div ng-style="{ width: mutationRate + '%' || '0%' }">
+            </div>
+
+            <button ng-click="startGame()">
+            Start Game
+            </button>
+        </div>
+
+        <script src="assets/ecmaScript/angular.js"></script>
         <script src="assets/ecmaScript/phaser.min.js"></script>
         <script src="assets/ecmaScript/p2.min.js"></script>
         <script src="assets/ecmaScript/genotower.js"></script>
@@ -19,6 +39,8 @@
         <script src="assets/ecmaScript/path.js"></script>
         <script src="assets/ecmaScript/geneticAlgorithm.js"></script>
         <script src="assets/ecmaScript/run.js"></script>
+        <script src="assets/ecmaScript/angularApp.js"></script>
+
         <div id="genotowerDefense"></div>
     </body>
 </html>
