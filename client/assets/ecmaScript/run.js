@@ -28,11 +28,7 @@ genotower.run = {
                 genotower.config.TOWER_AMOUNT);
         genotower.map.draw();
 
-        setTimeout(function () {
-            setInterval(function () {
-                genotower.geneticAlgorithm.evolve();
-            }, 50);
-        }, 1000);
+        setTimeout(genotower.geneticAlgorithm.evolve, 1000);
     },
         
     update : function () {

@@ -17,15 +17,15 @@ genotower.generation = {
         }
     },
 
-    verify : function(nx, ny, ox, oy) {
+    verify : function(newX, newY, oldX, oldY) {
 
         var grid = genotower.path.translateTiles(),
             tempBool = false,
             tempScore = 0;
 
-        tempBool = grid[ox][oy];
-        grid[ox][oy] = grid[nx][ny];
-        grid[nx][ny] = tempBool;
+        tempBool = grid[oldX][oldY];
+        grid[oldX][oldY] = grid[newX][newY];
+        grid[newX][newY] = tempBool;
 
         genotower.path.setPath(genotower.path.translateTiles());
         tempScore = this.scoreFitness();

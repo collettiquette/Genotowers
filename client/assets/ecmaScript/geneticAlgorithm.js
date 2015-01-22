@@ -7,5 +7,6 @@ genotower.geneticAlgorithm = {
         genotower.map.draw();
         genotower.path.placePath();
         console.log(genotower.generation.scoreFitness());
+        setTimeout(genotower.geneticAlgorithm.evolve, 50);
     }
 };
