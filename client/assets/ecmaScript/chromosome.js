@@ -26,7 +26,8 @@ genotower.chromosome = {
         do {
             newX = this.x + genotower.randomSign(this.changeInPosition(mutationDegree));
             newY = this.y + genotower.randomSign(this.changeInPosition(mutationDegree));
-        } while (!genotower.map.checkBounds(newX, newY) || !genotower.generation.verify(newX, newY, this.x, this.y))
+        } while (!genotower.map.checkBounds(newX, newY) || 
+                !genotower.generation.verify(newX, newY, this.x, this.y))
 
         genotower.map.swapTiles(this, genotower.map.tiles[newX][newY]);
     },

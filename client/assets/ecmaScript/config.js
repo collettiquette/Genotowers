@@ -11,18 +11,17 @@ genotower.config = {
 
     TOWER_AMOUNT : 60,
     WALL_AMOUNT : 100,
-    
+
     MAP_WIDTH : 20,
     MAP_HEIGHT : 20
 };    
     
-genotower.config.SCREEN_WIDTH = (genotower.config.MAP_WIDTH * 32),
-genotower.config.SCREEN_HEIGHT = (genotower.config.MAP_HEIGHT * 32),
-genotower.config.WORLD_WIDTH = genotower.config.SCREEN_WIDTH,
-genotower.config.WORLD_HEIGHT = genotower.config.SCREEN_HEIGHT,
-    
+genotower.config.SCREEN_WIDTH = (genotower.config.MAP_WIDTH * 32);
+genotower.config.SCREEN_HEIGHT = (genotower.config.MAP_HEIGHT * 32);
+genotower.config.WORLD_WIDTH = genotower.config.SCREEN_WIDTH;
+genotower.config.WORLD_HEIGHT = genotower.config.SCREEN_HEIGHT;
+
 genotower.config.START_X = 0;
 genotower.config.START_Y = (genotower.config.MAP_HEIGHT - 1);
 genotower.config.END_X = (genotower.config.MAP_HEIGHT - 1);
 genotower.config.END_Y = 0;
-    
