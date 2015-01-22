@@ -9,11 +9,11 @@ genotower.config = {
     MUTATION_RATE : .05,
     MUTATION_DEGREE : 2,
 
-    TOWER_AMOUNT : 60,
-    WALL_AMOUNT : 100,
+    TOWER_AMOUNT : 10,
+    WALL_AMOUNT : 30,
 
-    MAP_WIDTH : 20,
-    MAP_HEIGHT : 20
+    MAP_WIDTH : 10,
+    MAP_HEIGHT : 10
 };    
     
 genotower.config.SCREEN_WIDTH = (genotower.config.MAP_WIDTH * 32);
