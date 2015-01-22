@@ -4,6 +4,7 @@ genotower.geneticAlgorithm = {
       genotower.generation.mutateGenome(genotower.towers);
       genotower.generation.mutateGenome(genotower.walls);
       genotower.map.draw();
+      genotower.path.placePath();
       console.log(genotower.generation.scoreFitness());
     }
 };
