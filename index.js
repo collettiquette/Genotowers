@@ -5,5 +5,5 @@ var express = require("express"),
 app.use(express.static("client"));
 
 http.listen(3000, function(){
-  console.log("Listenin' to port 3000, boss.");
+    console.log("Listenin' to port 3000, boss.");
 });

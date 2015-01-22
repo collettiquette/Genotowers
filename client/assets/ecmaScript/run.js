@@ -23,6 +23,12 @@ genotower.run = {
 //        genotower.map.initialize();
         genotower.generateGenotype(genotower.config.WALL_AMOUNT, genotower.config.TOWER_AMOUNT);
         genotower.map.draw();
+
+        setTimeout(function () {
+            setInterval(function () {
+                genotower.geneticAlgorithm.evolve();
+            }, 50);
+        }, 1000);
     },
         
     update : function () {
