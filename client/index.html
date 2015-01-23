@@ -10,14 +10,12 @@
             Genotowers
             </h1>
 
-            <div>
-                <span>{{ "Mutation Rate: " + mutationRate }}%</span>
-            </div>
-            
-            <input type="range" min="0" max="100" ng-model="mutationRate">
-            
-            <div ng-style="{ width: mutationRate + '%' || '0%' }">
-            </div>
+            <li ng-repeat="setting in userSettings">
+                <div>
+                    <span>{{ setting.title + ": " + setting.value }}</span>
+                </div>
+                <input type="range" min={{setting.min}} max={{setting.max}} ng-model="setting.value">
+            </li>
 
             <button ng-click="startGame()">
             {{ buttonText }}
