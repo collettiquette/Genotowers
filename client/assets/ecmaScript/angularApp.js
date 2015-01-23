@@ -1,8 +1,6 @@
 genotower.angularApp = angular.module("genotowerApp", []);
 
 genotower.angularApp.controller("genotowerCtrl", function ($scope) {
-    var i = 0;
-
     $scope.buttonText = "Start Game";
     $scope.userSettings = [
         {
