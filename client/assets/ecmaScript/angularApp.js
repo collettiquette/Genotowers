@@ -6,25 +6,21 @@ genotower.angularApp.controller("genotowerCtrl", function ($scope) {
         {
             title: "Number of Towers",
             value: 10,
-            min: 0,
             max: 20
         },
         {
             title: "Number of Walls",
             value: 30,
-            min: 0,
             max: 60
         },
         {
             title: "Mutation Percentage",
             value: 10,
-            min: 0,
             max: 100
         },
         {
             title: "Mutation Degree",
             value: 2,
-            min: 0,
             max: 10
         }
     ];
