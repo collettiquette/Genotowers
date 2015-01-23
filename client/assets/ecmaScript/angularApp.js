@@ -6,29 +6,25 @@ genotower.angularApp.controller("genotowerCtrl", function ($scope) {
     $scope.buttonText = "Start Game";
     $scope.userSettings = [
         {
-            title: "Amount of Towers",
-            tag: "towerAmount",
+            title: "Number of Towers",
             value: 10,
             min: 0,
-            max: 30
+            max: 20
         },
         {
-            title: "Amount of Walls",
-            tag: "wallAmount",
+            title: "Number of Walls",
             value: 30,
             min: 0,
-            max: 50
+            max: 60
         },
         {
             title: "Mutation Percentage",
-            tag: "mutationPercentage",
             value: 10,
             min: 0,
             max: 100
         },
         {
-            title: "Degree of Mutation",
-            tag: "mutationDegree",
+            title: "Mutation Degree",
             value: 2,
             min: 0,
             max: 10

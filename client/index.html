@@ -14,13 +14,7 @@
                 <div>
                     <span>{{ setting.title + ": " + setting.value }}</span>
                 </div>
-
-
-
-                <input type="range" min="setting.min" max="setting.max" ng-model="setting.value">
-            
-                <div ng-style="{ width: setting.value || 0}">
-                </div>            
+                <input type="range" min={{setting.min}} max={{setting.max}} ng-model="setting.value">
             </li>
 
             <button ng-click="startGame()">
