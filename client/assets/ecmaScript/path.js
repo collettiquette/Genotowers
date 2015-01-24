@@ -26,13 +26,20 @@ genotower.path = {
                 [genotower.config.END_X, genotower.config.END_Y]);
     },
 
+    toggleTorches : function (bool) {
+        var i = 0,
+            path,
+            max;
 
-    toggleTorches : function (on) {
-        var path = genotower.path.currentPath;
-        for (i=0; i<path.length; i+=1) {
-            genotower.map.tiles[path[i][0]][path[i][1]].torchSprite.exists = on;
+        this.setPath(genotower.path.translateTiles());
+        path = this.currentPath;
+        max = path.length;
+
+        for (i = 0; i < max; i += 1) {
+            genotower.map.tiles[path[i][0]][path[i][1]].torchSprite.exists = bool;
         }
     },
+
     isValid : function () {
         genotower.path.setPath(genotower.path.translateTiles());
         return !(genotower.path.currentPath.length === 0);

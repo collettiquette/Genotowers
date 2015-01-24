@@ -49,6 +49,11 @@ genotower.map = {
 
     checkBounds : function (x, y) {
         return ((x < genotower.config.MAP_WIDTH) && (x >= 0) &&
-                (y < genotower.config.MAP_HEIGHT) && (y >= 0));
+                (y < genotower.config.MAP_HEIGHT) && (y >= 0) &&
+                this.checkStart(x,y));
+    },
+
+    checkStart : function (x, y) {
+        return (x !== genotower.config.START_X || y !== genotower.config.START_Y);
     }
 };

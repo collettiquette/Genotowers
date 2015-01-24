@@ -3,12 +3,12 @@ genotower.run = {
     start : function () {
         console.log(genotower.run);
         genotower.run.game = new Phaser.Game(genotower.config.SCREEN_WIDTH,
-        	    genotower.config.SCREEN_HEIGHT, Phaser.AUTO, 
+        	    genotower.config.SCREEN_HEIGHT, Phaser.AUTO,
                 'genotowerDefense', {preload: genotower.run.preload, create:
                 genotower.run.create, update: genotower.run.update, render:
                 genotower.run.render});
     },
-    
+
     preload : function () {
         genotower.run.game.load.image('tower', genotower.config.TOWER_IMAGE);
         genotower.run.game.load.image('wall', genotower.config.WALL_IMAGE);
@@ -30,12 +30,12 @@ genotower.run = {
 
         setTimeout(genotower.geneticAlgorithm.evolve, 1000);
     },
-        
+
     update : function () {
-        
+
     },
 
     render : function () {
-        
+
     }
 };
