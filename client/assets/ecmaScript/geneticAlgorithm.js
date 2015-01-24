@@ -16,18 +16,16 @@ genotower.geneticAlgorithm = {
 
 
         genotower.path.setPath(genotower.path.translateTiles());
-        genotower.map.draw();
-        genotower.path.placePath();
+//        genotower.path.placePath();
 
         if (bestScore > genotower.generation.scoreFitness()) {
  
    	        for (i = max - 1; i >= 0; i -= 1) {
             	genotower.map.swapTiles(mutations[i][1], mutations[i][0]);
        	        genotower.path.setPath(genotower.path.translateTiles());
-                genotower.map.draw();
-                genotower.path.placePath();
+//                genotower.path.placePath();
             }
         }
-        setTimeout(genotower.geneticAlgorithm.evolve, 100);
+        setTimeout(genotower.geneticAlgorithm.evolve, 25);
     }
 };

@@ -32,11 +32,16 @@ genotower.chromosome = {
     },
 
     translatePosition : function (arrayCoordinate) {
-        return arrayCoordinate === 0 ? 0 : (arrayCoordinate*32);
+        return arrayCoordinate * 32;
     },
 
     place : function (imageKey) {
         this.sprite = genotower.run.game.add.sprite(this.translatePosition(this.x),
                 this.translatePosition(this.y), imageKey);
+    },
+
+    syncSpritePosition : function () {
+        this.sprite.x = this.translatePosition(this.x);
+        this.sprite.y = this.translatePosition(this.y);
     }
 };

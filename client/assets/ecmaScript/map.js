@@ -27,7 +27,8 @@ genotower.map = {
 
         newTile.setPosition(oldTile.x, oldTile.y);
         oldTile.setPosition(x, y);
-
+        newTile.syncSpritePosition();
+        oldTile.syncSpritePosition();
     },
 
     draw : function () {
