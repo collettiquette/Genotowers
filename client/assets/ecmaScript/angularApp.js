@@ -1,7 +1,6 @@
 genotower.angularApp = angular.module("genotowerApp", []);
 
 genotower.angularApp.controller("genotowerCtrl", function ($scope) {
-    $scope.buttonText = "Start Game";
     $scope.userSettings = [
         {
             title: "Number of Towers",
@@ -24,6 +23,8 @@ genotower.angularApp.controller("genotowerCtrl", function ($scope) {
             max: 10
         }
     ];
+
+    $scope.buttonText = "Start Game";
 
     $scope.startGame = function () {
         genotower.config.TOWER_AMOUNT = ($scope.userSettings[0].value);

@@ -45,8 +45,8 @@ genotower.chromosome = {
         this.sprite.y = this.translatePosition(this.y);
         
         if (this.torchSprite) {
-            this.torchSprite.x = this.translatePosition(this.x);
-            this.torchSprite.y = this.translatePosition(this.y);
+            this.torchSprite.x = this.sprite.x;
+            this.torchSprite.y = this.sprite.y;
         }
     }
 };
