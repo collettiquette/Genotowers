@@ -4,23 +4,18 @@
         <meta charset="UTF-8" />
         <title>Genotower Defense</title>
     </head>
-    <body ng-app ="genotowerApp">
-        <div ng-controller="genotowerCtrl">
-            <h1>
-            Genotowers
-            </h1>
+    <body id="genotowerDefense" ng-app ="genotowerApp" ng-controller="genotowerCtrl">
 
-            <li ng-repeat="setting in userSettings">
-                <div>
-                    <span>{{ setting.title + ": " + setting.value }}</span>
-                </div>
-                <input type="range" min="0" max={{setting.max}} ng-model="setting.value">
-            </li>
+        <h1>Genotowers</h1>
 
-            <button ng-click="startGame()">
-            {{ buttonText }}
-            </button>
-        </div>
+        <li ng-repeat="setting in userSettings">
+            <div>
+                <span>{{ setting.title + ": " + setting.value + setting.sign }}</span>
+            </div>
+            <input type="range" min="0" max={{setting.max}} ng-model="setting.value">
+        </li>
+
+        <button ng-click="startGame()">{{ buttonText }}</button>
 
         <script src="assets/ecmaScript/angular.js"></script>
         <script src="assets/ecmaScript/phaser.min.js"></script>
@@ -39,6 +34,5 @@
         <script src="assets/ecmaScript/run.js"></script>
         <script src="assets/ecmaScript/angularApp.js"></script>
 
-        <div id="genotowerDefense"></div>
     </body>
 </html>

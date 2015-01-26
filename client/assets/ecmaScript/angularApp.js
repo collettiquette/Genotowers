@@ -1,25 +1,30 @@
 genotower.angularApp = angular.module("genotowerApp", []);
 
 genotower.angularApp.controller("genotowerCtrl", function ($scope) {
+
     $scope.userSettings = [
         {
             title: "Number of Towers",
             value: 10,
+            sign: "",
             max: 20
         },
         {
             title: "Number of Walls",
             value: 30,
+            sign: "",
             max: 60
         },
         {
-            title: "Mutation Percentage",
+            title: "Mutation Rate",
             value: 10,
+            sign: "%",
             max: 100
         },
         {
             title: "Mutation Degree",
             value: 2,
+            sign: "",
             max: 10
         }
     ];
