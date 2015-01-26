@@ -26,7 +26,7 @@ genotower.path = {
                 [genotower.config.END_X, genotower.config.END_Y]);
     },
 
-    toggleTorches : function (bool) {
+    toggleWaypoints : function (bool) {
         var i = 0,
             path,
             max;
@@ -36,7 +36,7 @@ genotower.path = {
         max = path.length;
 
         for (i = 0; i < max; i += 1) {
-            genotower.map.tiles[path[i][0]][path[i][1]].torchSprite.exists = bool;
+            genotower.map.tiles[path[i][0]][path[i][1]].waypointSprite.exists = bool;
         }
     },
 

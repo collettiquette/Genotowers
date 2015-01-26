@@ -11,6 +11,7 @@ genotower.run = {
 
     preload : function () {
         genotower.run.game.load.image('tower', genotower.config.TOWER_IMAGE);
+        genotower.run.game.load.image('waypoint', genotower.config.WAYPOINT_IMAGE);
         genotower.run.game.load.image('wall', genotower.config.WALL_IMAGE);
         genotower.run.game.load.image('floor', genotower.config.FLOOR_IMAGE);
         genotower.run.game.load.image('torch', genotower.config.TORCH_IMAGE);

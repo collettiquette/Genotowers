@@ -1,5 +1,6 @@
 genotower.config = {
     TOWER_IMAGE : "assets/images/tower.png",
+    WAYPOINT_IMAGE : "assets/images/waypoint.png",
     WALL_IMAGE : "assets/images/wall.png",
     FLOOR_IMAGE : "assets/images/floor.png",
     TORCH_IMAGE : "assets/images/torch.png",

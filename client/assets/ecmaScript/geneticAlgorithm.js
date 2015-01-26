@@ -10,7 +10,7 @@ genotower.geneticAlgorithm = {
         max = mutations.length;
         console.log(genotower.generation.scoreFitness());
 
-        genotower.path.toggleTorches(false);
+        genotower.path.toggleWaypoints(false);
 
         for (i = 0; i < max; i += 1) {
         	genotower.map.swapTiles(mutations[i][0], mutations[i][1]);
@@ -26,7 +26,7 @@ genotower.geneticAlgorithm = {
             }
         }
 
-        genotower.path.toggleTorches(true);
+        genotower.path.toggleWaypoints(true);
 
         setTimeout(genotower.geneticAlgorithm.evolve, 25);
     }
