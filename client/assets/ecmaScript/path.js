@@ -4,31 +4,30 @@ genotower.path = {
     translateGrid : function (oldGrid) {
         var x = 0,
             y = 0,
-            newGrid = [];
-
-        for (x = 0; x < genotower.config.MAP_WIDTH; x += 1) {
-            newGrid.push([]);
-
-            for (y = 0; y < genotower.config.MAP_HEIGHT; y += 1) {
+            newGrid = [],
+            innerFunction = function (x, y) {
+                newGrid.push([]);
+            },
+            outerFunction = function (x, y) {
                 newGrid[x].push(oldGrid[x][y].impassable);
-            }
-        }
+            };
+
+        genotower.map.iterateOverCoordinates(innerFunction, outerFunction);
         return newGrid;
     },
 
     translateTiles : function () {
         var x = 0,
             y = 0,
-            grid = [];
-
-        for (x = 0; x < genotower.config.MAP_WIDTH; x += 1) {
-            grid.push([]);
-
-            for (y = 0; y < genotower.config.MAP_HEIGHT; y += 1) {
+            grid = [],
+            innerFunction = function (x, y) {
+                grid.push([]);
+            },
+            outerFunction = function (x, y) {
                 grid[x].push(genotower.map.getTile(x, y));
-            }
-        }
+            };
 
+        genotower.map.iterateOverCoordinates(innerFunction, outerFunction);
         return this.translateGrid(grid);
     },
 
@@ -43,7 +42,7 @@ genotower.path = {
             path,
             max;
 
-        this.setPath(genotower.path.translateTiles());
+        this.setPath(this.translateTiles());
         path = this.currentPath;
         max = path.length;
 

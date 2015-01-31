@@ -3,23 +3,33 @@ genotower.map = (function () {
 
     return {
 
-        initialize : function () {
-            var y = 0,
-                x = 0,
-                w = 0,
-                t = 0,
-                floor = null;
-
-            tiles = [];
+        iterateOverCoordinates : function (innerCallback, outerCallback) {
+            var x = 0,
+                y = 0;
 
             for (x = 0; x < genotower.config.MAP_WIDTH; x += 1) {
-                tiles.push([]);
+
+                if (innerCallback) {
+                    innerCallback(x, y);
+                }
 
                 for (y = 0; y < genotower.config.MAP_HEIGHT; y += 1) {
-                    floor = Object.create(genotower.floor);
-                    floor.setPosition(x, y);
+                    outerCallback(x, y);
                 }
             }
+        },
+
+        initialize : function () {
+            var innerFunction = function (x, y) {
+                    tiles.push([]);
+                },
+                outerFunction = function (x, y) {
+                    var floor = Object.create(genotower.floor);
+                    floor.setPosition(x, y);
+                };
+
+            tiles = [];
+            this.iterateOverCoordinates(innerFunction, outerFunction);
         },
 
         swapTiles : function (oldTile, newTile) {
@@ -33,13 +43,11 @@ genotower.map = (function () {
         },
 
         draw : function () {
+            var outerFunction = function (x, y) {
+                genotower.map.getTile(x, y).create();
+            };
 
-            for (x = 0; x < genotower.config.MAP_WIDTH; x += 1) {
-
-                for (y = 0; y < genotower.config.MAP_HEIGHT; y += 1) {
-                    tiles[x][y].create();
-                }
-            }
+            genotower.map.iterateOverCoordinates(false, outerFunction);
         },
 
         getRandomPosition : function () {
