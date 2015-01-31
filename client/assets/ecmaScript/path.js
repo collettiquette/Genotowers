@@ -16,8 +16,20 @@ genotower.path = {
         return newGrid;
     },
 
-    translateTiles : function() {
-        return this.translateGrid(genotower.map.getTileMap());
+    translateTiles : function () {
+        var x = 0,
+            y = 0,
+            grid = [];
+
+        for (x = 0; x < genotower.config.MAP_WIDTH; x += 1) {
+            grid.push([]);
+
+            for (y = 0; y < genotower.config.MAP_HEIGHT; y += 1) {
+                grid[x].push(genotower.map.getTile(x, y));
+            }
+        }
+
+        return this.translateGrid(grid);
     },
 
     setPath : function (grid) {
@@ -36,7 +48,6 @@ genotower.path = {
         max = path.length;
 
         for (i = 0; i < max; i += 1) {
-            // I'm worried about this line.
             genotower.map.getTile(path[i][0], path[i][1]).waypointSprite.exists = bool;
         }
     },

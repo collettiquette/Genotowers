@@ -64,10 +64,6 @@ genotower.map = (function () {
 
         getTile : function (x, y) {
             return tiles[x][y];
-        },
-
-        getTileMap : function () {
-            return tiles;
         }
     };
 }());
