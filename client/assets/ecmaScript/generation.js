@@ -12,10 +12,12 @@ genotower.generation = {
                 mutations.push(obstacles[i].mutate(genotower.config.MUTATION_DEGREE));
             }
         }
+
         return mutations;
     },
 
     scoreFitness : function () {
+        
         return genotower.path.currentPath.length;
     }
 };

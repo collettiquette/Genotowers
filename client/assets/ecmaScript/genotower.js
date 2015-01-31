@@ -24,6 +24,7 @@ var genotower = {
             currentObstacle.setPosition(randomPosition[0], randomPosition[1]);
             obstacleList.push(currentObstacle);
         }
+
         return obstacleList;
     },
 
