@@ -12,7 +12,7 @@ genotower.chromosome = {
     setPosition : function (x, y) {
         this.x = x;
         this.y = y;
-        genotower.map.tiles[x][y] = this;
+        genotower.map.setTile(x, y, this);
     },
 
     changeInPosition : function (mutationDegree) {
@@ -28,7 +28,7 @@ genotower.chromosome = {
             newY = this.y + genotower.randomSign(this.changeInPosition(mutationDegree));
         } while (!genotower.map.checkBounds(newX, newY))
 
-        return  [this, genotower.map.tiles[newX][newY]];
+        return  [this, genotower.map.getTile(newX, newY)];
     },
 
     translatePosition : function (arrayCoordinate) {

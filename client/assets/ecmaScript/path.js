@@ -17,7 +17,7 @@ genotower.path = {
     },
 
     translateTiles : function() {
-        return this.translateGrid(genotower.map.tiles);
+        return this.translateGrid(genotower.map.getTileMap());
     },
 
     setPath : function (grid) {
@@ -36,7 +36,8 @@ genotower.path = {
         max = path.length;
 
         for (i = 0; i < max; i += 1) {
-            genotower.map.tiles[path[i][0]][path[i][1]].waypointSprite.exists = bool;
+            // I'm worried about this line.
+            genotower.map.getTile(path[i][0], path[i][1]).waypointSprite.exists = bool;
         }
     },
 
