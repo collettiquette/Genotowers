@@ -3,33 +3,33 @@ genotower.map = (function () {
 
     return {
 
-        iterateOverCoordinates : function (innerCallback, outerCallback) {
+        iterateOverCoordinates : function (outerCallback, innerCallback) {
             var x = 0,
                 y = 0;
 
             for (x = 0; x < genotower.config.MAP_WIDTH; x += 1) {
 
-                if (innerCallback) {
-                    innerCallback(x, y);
+                if (outerCallback) {
+                    outerCallback(x, y);
                 }
 
                 for (y = 0; y < genotower.config.MAP_HEIGHT; y += 1) {
-                    outerCallback(x, y);
+                    innerCallback(x, y);
                 }
             }
         },
 
         initialize : function () {
-            var innerFunction = function (x, y) {
+            var outerFunction = function (x, y) {
                     tiles.push([]);
                 },
-                outerFunction = function (x, y) {
+                innerFunction = function (x, y) {
                     var floor = Object.create(genotower.floor);
                     floor.setPosition(x, y);
                 };
 
             tiles = [];
-            this.iterateOverCoordinates(innerFunction, outerFunction);
+            this.iterateOverCoordinates(outerFunction, innerFunction);
         },
 
         swapTiles : function (oldTile, newTile) {
@@ -43,11 +43,11 @@ genotower.map = (function () {
         },
 
         draw : function () {
-            var outerFunction = function (x, y) {
+            var innerFunction = function (x, y) {
                 genotower.map.getTile(x, y).create();
             };
 
-            genotower.map.iterateOverCoordinates(false, outerFunction);
+            genotower.map.iterateOverCoordinates(false, innerFunction);
         },
 
         getRandomPosition : function () {
