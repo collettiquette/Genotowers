@@ -11,7 +11,6 @@ genotower.geneticAlgorithm = {
         mutationInstructions = wallMutationInstructions.concat(towerMutationInstructions);
         max = mutationInstructions.length;
         console.log(genotower.generation.scoreFitness());
-
         genotower.path.toggleWaypoints(false);
 
         for (i = 0; i < max; i += 1) {
@@ -27,9 +26,7 @@ genotower.geneticAlgorithm = {
        	        genotower.path.setPath(genotower.path.translateTiles());
             }
         }
-
         genotower.path.toggleWaypoints(true);
-
         setTimeout(genotower.geneticAlgorithm.evolve, 25);
     }
 };

@@ -13,6 +13,7 @@ genotower.path = {
             };
 
         genotower.map.iterateOverCoordinates(outerFunction, innerFunction);
+
         return newGrid;
     },
 
@@ -28,6 +29,7 @@ genotower.path = {
             };
 
         genotower.map.iterateOverCoordinates(outerFunction, innerFunction);
+
         return this.translateGrid(grid);
     },
 
@@ -53,6 +55,7 @@ genotower.path = {
 
     isValid : function () {
         genotower.path.setPath(genotower.path.translateTiles());
+
         return !(genotower.path.currentPath.length === 0);
     }
 
