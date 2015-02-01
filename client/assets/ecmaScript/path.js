@@ -1,22 +1,6 @@
 genotower.path = {
     currentPath : null,
 
-    translateGrid : function (oldGrid) {
-        var x = 0,
-            y = 0,
-            newGrid = [],
-            outerFunction = function () {
-                newGrid.push([]);
-            },
-            innerFunction = function (x, y) {
-                newGrid[x].push(oldGrid[x][y].impassable);
-            };
-
-        genotower.map.iterateOverCoordinates(outerFunction, innerFunction);
-
-        return newGrid;
-    },
-
     translateTiles : function () {
         var x = 0,
             y = 0,
@@ -25,12 +9,12 @@ genotower.path = {
                 grid.push([]);
             },
             innerFunction = function (x, y) {
-                grid[x].push(genotower.map.getTile(x, y));
+                grid[x].push(genotower.map.getTile(x, y).impassable);
             };
 
         genotower.map.iterateOverCoordinates(outerFunction, innerFunction);
 
-        return this.translateGrid(grid);
+        return grid;
     },
 
     setPath : function (grid) {
