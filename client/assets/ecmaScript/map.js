@@ -20,7 +20,7 @@ genotower.map = (function () {
         },
 
         initialize : function () {
-            var outerFunction = function (x, y) {
+            var outerFunction = function () {
                     tiles.push([]);
                 },
                 innerFunction = function (x, y) {

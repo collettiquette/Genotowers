@@ -5,7 +5,7 @@ genotower.path = {
         var x = 0,
             y = 0,
             newGrid = [],
-            outerFunction = function (x, y) {
+            outerFunction = function () {
                 newGrid.push([]);
             },
             innerFunction = function (x, y) {
@@ -21,7 +21,7 @@ genotower.path = {
         var x = 0,
             y = 0,
             grid = [],
-            outerFunction = function (x, y) {
+            outerFunction = function () {
                 grid.push([]);
             },
             innerFunction = function (x, y) {
