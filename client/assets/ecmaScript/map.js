@@ -51,9 +51,10 @@ genotower.map = (function () {
         },
 
         getRandomPosition : function () {
-            return [(Math.floor(Math.random() *
-                    genotower.config.MAP_WIDTH)), (Math.floor(Math.random() *
-                    genotower.config.MAP_HEIGHT))];
+            return { 
+                x : (Math.floor(Math.random() * genotower.config.MAP_WIDTH)), 
+                y : (Math.floor(Math.random() * genotower.config.MAP_HEIGHT))
+            };
         },
 
         checkBounds : function (x, y) {
