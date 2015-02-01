@@ -51,6 +51,7 @@ genotower.map = (function () {
         },
 
         getRandomPosition : function () {
+
             return { 
                 x : (Math.floor(Math.random() * genotower.config.MAP_WIDTH)), 
                 y : (Math.floor(Math.random() * genotower.config.MAP_HEIGHT))
@@ -58,13 +59,16 @@ genotower.map = (function () {
         },
 
         checkBounds : function (x, y) {
+
             return ((x < genotower.config.MAP_WIDTH) && (x >= 0) &&
                     (y < genotower.config.MAP_HEIGHT) && (y >= 0) &&
-                    this.checkStart(x,y));
+                    this.checkStart(x, y));
         },
 
         checkStart : function (x, y) {
-            return (x !== genotower.config.START_X || y !== genotower.config.START_Y);
+
+            return (x !== genotower.config.START_X || y !==
+                    genotower.config.START_Y);
         },
 
         setTile : function (x, y, tile) {
