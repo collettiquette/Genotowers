@@ -1,6 +1,7 @@
 var genotower = {
     walls : [],
     towers : [],
+    monsters : [],
 
     randomSign : function (i) {
         return Math.random() < 0.5 ? -1 * i : i;
@@ -30,6 +31,18 @@ var genotower = {
         }
 
         return obstacleList;
+    },
+    
+    generateMonsters : function () {
+        var i = 0,
+            currentMonster;
+        
+        while (i < genotower.config.MONSTER_COUNT) {
+            currentMonster = Object.create(genotower.monster);
+            currentMonster.initializeMonster();
+            genotower.monsters.push(currentMonster);
+            i += 1;
+        }
     },
 
     generateGenotype : function (wallCount, towerCount) {

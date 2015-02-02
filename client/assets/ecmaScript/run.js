@@ -27,6 +27,8 @@ genotower.run = {
         genotower.run.game.input.addPointer();
         genotower.generateGenotype(genotower.config.WALL_AMOUNT,
                 genotower.config.TOWER_AMOUNT);
+        
+        genotower.generateMonsters();
         genotower.map.draw();
 
         setTimeout(genotower.geneticAlgorithm.evolve, 1000);

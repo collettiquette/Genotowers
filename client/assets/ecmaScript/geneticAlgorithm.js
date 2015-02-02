@@ -27,6 +27,6 @@ genotower.geneticAlgorithm = {
             }
         }
         genotower.path.toggleWaypoints(true);
-        setTimeout(genotower.geneticAlgorithm.evolve, 25);
+        setTimeout(genotower.geneticAlgorithm.evolve, 1);
     }
 };
