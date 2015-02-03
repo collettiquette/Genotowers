@@ -4,7 +4,7 @@ genotower.geneticAlgorithm = {
         var i = 0,
             mutationInstructions,
             max,
-            bestScore = genotower.path.currentPath.length,
+            bestScore = genotower.path.getPath().length,
             wallMutationInstructions = genotower.generation.mutateGenome(genotower.walls),
             towerMutationInstructions = genotower.generation.mutateGenome(genotower.towers);
 

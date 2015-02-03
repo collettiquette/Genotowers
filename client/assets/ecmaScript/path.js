@@ -23,6 +23,10 @@ genotower.path = {
                 [genotower.config.END_X, genotower.config.END_Y]);
     },
 
+    getPath : function () {
+        return this.currentPath;
+    },
+
     toggleWaypoints : function (bool) {
         var i = 0,
             path,

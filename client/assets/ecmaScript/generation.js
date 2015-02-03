@@ -9,7 +9,8 @@ genotower.generation = {
         for (i = 0; i < max; i += 1) {
 
             if (obstacles[i].shouldMutate(genotower.config.MUTATION_RATE)) {
-                mutations.push(obstacles[i].mutate(genotower.config.MUTATION_DEGREE));
+                mutations.push(obstacles[i].mutate(
+                        genotower.config.MUTATION_DEGREE));
             }
         }
 
@@ -18,6 +19,6 @@ genotower.generation = {
 
     scoreFitness : function () {
         
-        return genotower.path.currentPath.length;
+        return genotower.path.getPath().length;
     }
 };
