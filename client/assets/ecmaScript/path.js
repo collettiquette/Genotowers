@@ -18,9 +18,24 @@ genotower.path = {
     },
 
     setPath : function (grid) {
+        var i = 0,
+            max,
+            tempX,
+            tempY;
+
         this.currentPath = genotower.aStar(grid,
                 [genotower.config.START_X, genotower.config.START_Y],
                 [genotower.config.END_X, genotower.config.END_Y]);
+        max = this.currentPath.length;
+
+        for (i = 0; i < max; i +=1) {
+            tempX = this.currentPath[i][0];
+            tempY = this.currentPath[i][1];
+            this.currentPath[i] = {
+                x : tempX,
+                y : tempY
+            };
+        }
     },
 
     getPath : function () {
@@ -37,7 +52,7 @@ genotower.path = {
         max = path.length;
 
         for (i = 0; i < max; i += 1) {
-            genotower.map.getTile(path[i][0], path[i][1]).waypointSprite.exists = bool;
+            genotower.map.getTile(path[i].x, path[i].y).waypointSprite.exists = bool;
         }
     },
 

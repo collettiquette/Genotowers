@@ -40,11 +40,11 @@ genotower.monster.checkFacing = function () {
         currentSpace = genotower.path.getPath()[this.spacesWalked],
         nextSpace = genotower.path.getPath()[this.spacesWalked + 1];
     
-    if (nextSpace[0] < currentSpace[0]) {
+    if (nextSpace.x < currentSpace.x) {
         this.setFacing('west');
-    } else if (nextSpace[0] > currentSpace[0]) {
+    } else if (nextSpace.x > currentSpace.x) {
         this.setFacing('east');
-    } else if (nextSpace[1] < currentSpace[1]) {
+    } else if (nextSpace.y < currentSpace.y) {
         this.setFacing('north');
     } else {this.setFacing('south')};
 };
