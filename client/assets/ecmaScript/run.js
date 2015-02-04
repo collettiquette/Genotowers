@@ -28,9 +28,9 @@ genotower.run = {
         genotower.generateGenotype(genotower.config.WALL_AMOUNT,
                 genotower.config.TOWER_AMOUNT);
         
-        genotower.generateMonsters();
         genotower.map.draw();
-
+        genotower.generateMonsters();
+        
         setTimeout(genotower.geneticAlgorithm.evolve, 1000);
     },
 

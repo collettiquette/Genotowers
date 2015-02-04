@@ -32,7 +32,6 @@ genotower.geneticAlgorithm = {
             }
         }
         genotower.path.toggleWaypoints(true);
-        //genotower.generateMonsters();
         //genotower.monsters[0].spawn();
         setTimeout(genotower.geneticAlgorithm.evolve, 1);
     }

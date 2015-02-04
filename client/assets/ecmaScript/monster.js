@@ -5,6 +5,7 @@ genotower.monster.spacesWalked = 0;
 
 genotower.monster.initializeMonster = function () {
     this.place('monster');
+    this.sprite.anchor.setTo(0.5, 0.5);
     this.destroy();
 };
 
@@ -15,8 +16,8 @@ genotower.monster.destroy = function () {
 genotower.monster.spawn = function () {
     this.sprite.exists = true;
     this.health = genotower.config.MONSTER_HEALTH;
-    this.sprite.x = this.translatePosition(genotower.config.START_X);
-    this.sprite.y = this.translatePosition(genotower.config.START_Y);
+    this.sprite.x = this.translatePosition(genotower.config.START_X)+16;
+    this.sprite.y = this.translatePosition(genotower.config.START_Y)+16;
     this.checkFacing();
     this.spacesWalked = 0;
 };
@@ -26,11 +27,11 @@ genotower.monster.setFacing = function (facingDirection) {
             case 'north' :
                 this.sprite.rotation = 0;
             case 'south' :
-                this.sprite.rotation = 180;
+                this.sprite.rotation = Math.radians(180);
             case 'east' :
-                this.sprite.rotation = 90;
+                this.sprite.rotation = Math.radians(90);
             case 'west' :
-                this.sprite.rotation = 270;
+                this.sprite.rotation = Math.radians(270);
     }
 };
 
