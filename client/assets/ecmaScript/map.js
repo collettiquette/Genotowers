@@ -20,16 +20,14 @@ genotower.map = (function () {
         },
 
         initialize : function () {
-            var outerFunction = function () {
+            tiles = [];
+            this.iterateOverCoordinates(function () {
                     tiles.push([]);
                 },
-                innerFunction = function (x, y) {
+                function (x, y) {
                     var floor = Object.create(genotower.floor);
                     floor.setPosition(x, y);
-                };
-
-            tiles = [];
-            this.iterateOverCoordinates(outerFunction, innerFunction);
+                });
         },
 
         swapTiles : function (oldTile, newTile) {

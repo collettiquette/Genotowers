@@ -4,15 +4,14 @@ genotower.path = {
     translateTiles : function () {
         var x = 0,
             y = 0,
-            grid = [],
-            outerFunction = function () {
+            grid = [];
+
+        genotower.map.iterateOverCoordinates(function () {
                 grid.push([]);
             },
-            innerFunction = function (x, y) {
+            function (x, y) {
                 grid[x].push(genotower.map.getTile(x, y).impassable);
-            };
-
-        genotower.map.iterateOverCoordinates(outerFunction, innerFunction);
+            });
 
         return grid;
     },
