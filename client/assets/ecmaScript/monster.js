@@ -36,8 +36,7 @@ genotower.monster.setFacing = function (facingDirection) {
 };
 
 genotower.monster.checkFacing = function () {
-    var lastSpace = genotower.path.getPath()[this.spacesWalked - 1],
-        currentSpace = genotower.path.getPath()[this.spacesWalked],
+    var currentSpace = genotower.path.getPath()[this.spacesWalked],
         nextSpace = genotower.path.getPath()[this.spacesWalked + 1];
     
     if (nextSpace.x < currentSpace.x) {
