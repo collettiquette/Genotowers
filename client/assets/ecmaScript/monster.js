@@ -1,4 +1,4 @@
-genotower.monster = Object.create(genotower.spriteContainer);
+genotower.monster = Object.create(genotower.animationContainer);
 
 genotower.monster.health = genotower.config.MONSTER_HEALTH;
 genotower.monster.spacesWalked = 0;
@@ -27,11 +27,11 @@ genotower.monster.setFacing = function (facingDirection) {
             case 'north' :
                 this.sprite.rotation = 0;
             case 'south' :
-                this.sprite.rotation = Math.radians(180);
+                this.sprite.rotation = this.toRadians(180);
             case 'east' :
-                this.sprite.rotation = Math.radians(90);
+                this.sprite.rotation = this.toRadians(90);
             case 'west' :
-                this.sprite.rotation = Math.radians(270);
+                this.sprite.rotation = this.toRadians(270);
     }
 };
 
