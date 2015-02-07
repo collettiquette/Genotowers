@@ -33,7 +33,8 @@ genotower.geneticAlgorithm = {
         }
         genotower.path.toggleWaypoints(true);
 
-//        genotower.hoarde.charge();
-        setTimeout(genotower.geneticAlgorithm.evolve, 1);
+        genotower.config.MONSTER_COUNT === 0 ? 
+                setTimeout(genotower.geneticAlgorithm.evolve, 1) :
+                genotower.hoarde.charge();
     }
 };

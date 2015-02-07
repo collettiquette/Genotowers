@@ -22,6 +22,11 @@ genotower.hoarde = {
             currentMonster = genotower.monsters[i];
             spawnTime = (i * genotower.config.TICK_SPEED * 
                     genotower.config.MONSTER_SPACING);
+
+            currentMonster.sprite.x = 0;
+            currentMonster.sprite.y = 0;
+            currentMonster.spacesWalked = 0;
+
             setTimeout(function () {
                 currentMonster.spawn();
             }, spawnTime);

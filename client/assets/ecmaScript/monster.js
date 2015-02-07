@@ -65,30 +65,41 @@ genotower.monster.checkFacing = function () {
     var currentSpace = genotower.path.getPath()[this.spacesWalked],
         nextSpace = genotower.path.getPath()[this.spacesWalked + 1];
 
-    if (!nextSpace) {
-        this.destroy();
-        // Just returning south so it doesn't break everything.
-        return 'south';
-    }
-    
     if (nextSpace.x < currentSpace.x) {
+
         return 'west';
+
     } else if (nextSpace.x > currentSpace.x) {
+
         return 'east';
+
     } else if (nextSpace.y < currentSpace.y) {
+
         return 'north';
+
     } else {
+
         return 'south';
     }
 };
 
 genotower.monster.walk = function (currentMonster) {
-    var direction = currentMonster.checkFacing();
+    var direction;
 
-    currentMonster.setFacing(direction);
-    currentMonster.moveDirection(direction);
-    currentMonster.spacesWalked += 1;
+    if (currentMonster.spacesWalked + 1  >= genotower.path.currentPath.length) {
+        currentMonster.destroy();
+        
+        if (currentMonster === genotower.monsters[genotower.config.MONSTER_COUNT - 1]) {
+            genotower.geneticAlgorithm.evolve();
+        }
+    }
 
+    else if (genotower.path.getPath()[currentMonster.spacesWalked + 1]) {
+        direction = currentMonster.checkFacing();
+        currentMonster.setFacing(direction);
+        currentMonster.moveDirection(direction);
+        currentMonster.spacesWalked += 1;
+    }
 };
 
 genotower.monster.takeDamage = function (amount) {
