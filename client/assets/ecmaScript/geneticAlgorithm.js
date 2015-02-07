@@ -32,8 +32,8 @@ genotower.geneticAlgorithm = {
             }
         }
         genotower.path.toggleWaypoints(true);
-//        genotower.monsters[0].spawn();
-//        genotower.monsters[0].move(false, "-32", 1000);
+
+//        genotower.hoarde.charge();
         setTimeout(genotower.geneticAlgorithm.evolve, 1);
     }
 };

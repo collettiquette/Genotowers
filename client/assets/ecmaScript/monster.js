@@ -14,38 +14,81 @@ genotower.monster.destroy = function () {
 };
 
 genotower.monster.spawn = function () {
+    var currentMonster = this;
+
     this.sprite.exists = true;
     this.health = genotower.config.MONSTER_HEALTH;
     this.sprite.x = this.translatePosition(genotower.config.START_X)+16;
     this.sprite.y = this.translatePosition(genotower.config.START_Y)+16;
-    this.checkFacing();
-    this.spacesWalked = 0;
+    this.setFacing(this.checkFacing());
+    this.spacesWalked = 0
+
+    setTimeout(function () {currentMonster.walk(currentMonster)}, 
+            genotower.config.TICK_SPEED);
 };
 
 genotower.monster.setFacing = function (facingDirection) {
     switch (facingDirection) {
-            case 'north' :
-                this.sprite.rotation = 0;
-            case 'south' :
-                this.sprite.rotation = this.toRadians(180);
-            case 'east' :
-                this.sprite.rotation = this.toRadians(90);
-            case 'west' :
-                this.sprite.rotation = this.toRadians(270);
+        case 'north' :
+            this.sprite.rotation = 0;
+            break;
+        case 'south' :
+            this.sprite.rotation = this.toRadians(180);
+            break;
+        case 'east' :
+            this.sprite.rotation = this.toRadians(90);
+            break;
+        case 'west' :
+            this.sprite.rotation = this.toRadians(270);
+            break;
+    }
+};
+
+genotower.monster.moveDirection = function (facingDirection) {
+    switch (facingDirection) {
+        case 'north' :
+            this.move(0, -32, genotower.config.TICK_SPEED);
+            break;
+        case 'south' :
+            this.move(0, 32, genotower.config.TICK_SPEED);
+            break;
+        case 'east' :
+            this.move(32, 0, genotower.config.TICK_SPEED);
+            break;
+        case 'west' :
+            this.move(-32, 0, genotower.config.TICK_SPEED);
+            break;
     }
 };
 
 genotower.monster.checkFacing = function () {
     var currentSpace = genotower.path.getPath()[this.spacesWalked],
         nextSpace = genotower.path.getPath()[this.spacesWalked + 1];
+
+    if (!nextSpace) {
+        this.destroy();
+        // Just returning south so it doesn't break everything.
+        return 'south';
+    }
     
     if (nextSpace.x < currentSpace.x) {
-        this.setFacing('west');
+        return 'west';
     } else if (nextSpace.x > currentSpace.x) {
-        this.setFacing('east');
+        return 'east';
     } else if (nextSpace.y < currentSpace.y) {
-        this.setFacing('north');
-    } else {this.setFacing('south')};
+        return 'north';
+    } else {
+        return 'south';
+    }
+};
+
+genotower.monster.walk = function (currentMonster) {
+    var direction = currentMonster.checkFacing();
+
+    currentMonster.setFacing(direction);
+    currentMonster.moveDirection(direction);
+    currentMonster.spacesWalked += 1;
+
 };
 
 genotower.monster.takeDamage = function (amount) {
@@ -54,7 +97,7 @@ genotower.monster.takeDamage = function (amount) {
 };
 
 genotower.monster.checkDeath = function () {
-	if (this.health < 1) {
+    if (this.health < 1) {
         this.destroy();
     }
 };

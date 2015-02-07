@@ -3,7 +3,7 @@ genotower.run = {
     start : function () {
         console.log(genotower.run);
         genotower.run.game = new Phaser.Game(genotower.config.SCREEN_WIDTH,
-        	    genotower.config.SCREEN_HEIGHT, Phaser.AUTO,
+                genotower.config.SCREEN_HEIGHT, Phaser.AUTO,
                 'genotowerDefense', {preload: genotower.run.preload, create:
                 genotower.run.create, update: genotower.run.update, render:
                 genotower.run.render});
@@ -26,9 +26,10 @@ genotower.run = {
         genotower.generateGenotype(genotower.config.WALL_AMOUNT,
                 genotower.config.TOWER_AMOUNT);    
         genotower.map.draw();
-        genotower.generateMonsters();
-        
+        genotower.hoarde.create();
+ 
         setTimeout(genotower.geneticAlgorithm.evolve, 1000);
+
     },
 
     update : function () {
