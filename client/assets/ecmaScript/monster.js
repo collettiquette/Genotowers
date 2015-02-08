@@ -23,23 +23,24 @@ genotower.monster.spawn = function () {
     this.setFacing(this.checkFacing());
     this.spacesWalked = 0
 
-    setTimeout(function () {currentMonster.walk(currentMonster)}, 
+    setTimeout(function () {currentMonster.walk()}, 
             genotower.config.TICK_SPEED);
 };
 
 genotower.monster.setFacing = function (facingDirection) {
+// Phaser rotations are in radians.
     switch (facingDirection) {
         case 'north' :
             this.sprite.rotation = 0;
             break;
         case 'south' :
-            this.sprite.rotation = this.toRadians(180);
+            this.sprite.rotation = 3.14;
             break;
         case 'east' :
-            this.sprite.rotation = this.toRadians(90);
+            this.sprite.rotation = 1.57;
             break;
         case 'west' :
-            this.sprite.rotation = this.toRadians(270);
+            this.sprite.rotation = -1.57;
             break;
     }
 };
@@ -83,22 +84,22 @@ genotower.monster.checkFacing = function () {
     }
 };
 
-genotower.monster.walk = function (currentMonster) {
+genotower.monster.walk = function () {
     var direction;
 
-    if (currentMonster.spacesWalked + 1  >= genotower.path.currentPath.length) {
-        currentMonster.destroy();
+    if (this.spacesWalked + 1  >= genotower.path.currentPath.length) {
+        this.destroy();
         
-        if (currentMonster === genotower.monsters[genotower.config.MONSTER_COUNT - 1]) {
+        if (this === genotower.monsters[genotower.config.MONSTER_COUNT - 1]) {
             genotower.geneticAlgorithm.evolve();
         }
     }
 
-    else if (genotower.path.getPath()[currentMonster.spacesWalked + 1]) {
-        direction = currentMonster.checkFacing();
-        currentMonster.setFacing(direction);
-        currentMonster.moveDirection(direction);
-        currentMonster.spacesWalked += 1;
+    else if (genotower.path.getPath()[this.spacesWalked + 1]) {
+        direction = this.checkFacing();
+        this.setFacing(direction);
+        this.moveDirection(direction);
+        this.spacesWalked += 1;
     }
 };
 
@@ -112,3 +113,4 @@ genotower.monster.checkDeath = function () {
         this.destroy();
     }
 };
+

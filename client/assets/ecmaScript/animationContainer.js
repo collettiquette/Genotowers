@@ -19,7 +19,7 @@ genotower.animationContainer.move = function (x, y, milliseconds) {
             Phaser.Easing.Linear.None, true);
 
     tween.onComplete.add(function () {
-        this.walk(this);
+        this.walk();
     }, this);
 
 };
