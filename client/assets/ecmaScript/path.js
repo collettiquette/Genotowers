@@ -63,7 +63,7 @@ genotower.path = (function () {
         isValid : function () {
             genotower.path.setPath(genotower.path.translateTiles());
 
-            return !(this.getLength === 0);
+            return !(this.getLength() === 0);
         }
     };
 }());
