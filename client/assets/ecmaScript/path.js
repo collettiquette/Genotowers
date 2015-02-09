@@ -55,7 +55,7 @@ genotower.path = (function () {
                 path,
                 max;
 
-            this.setPath(translateTiles());
+            this.setPath();
             path = getPath();
             max = this.getLength();
 
@@ -64,8 +64,8 @@ genotower.path = (function () {
             }
         },
 
-        isValid () {
-            genotower.path.setPath(translateTiles());
+        isValid : function () {
+            this.setPath();
 
             return !(this.getLength() === 0);
         }
