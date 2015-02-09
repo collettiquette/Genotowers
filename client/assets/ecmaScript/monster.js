@@ -90,7 +90,7 @@ genotower.monster.walk = function () {
     if (this.spacesWalked + 1  >= genotower.path.currentPath.length) {
         this.destroy();
         
-        if (this === genotower.monsters[genotower.config.MONSTER_COUNT - 1]) {
+        if (genotower.hoarde.isDead()) {
             genotower.geneticAlgorithm.evolve();
         }
     }
@@ -112,5 +112,9 @@ genotower.monster.checkDeath = function () {
     if (this.health < 1) {
         this.destroy();
     }
+};
+
+genotower.monster.isDead = function () {
+    return !this.sprite.exists;
 };
 
