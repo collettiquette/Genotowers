@@ -87,7 +87,7 @@ genotower.monster.checkFacing = function () {
 genotower.monster.walk = function () {
     var direction;
 
-    if (this.spacesWalked + 1  >= genotower.path.currentPath.length) {
+    if (this.spacesWalked + 1  >= genotower.path.getLength()) {
         this.destroy();
         
         if (genotower.hoarde.isDead()) {
