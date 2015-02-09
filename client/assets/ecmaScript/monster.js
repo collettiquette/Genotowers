@@ -63,8 +63,8 @@ genotower.monster.moveDirection = function (facingDirection) {
 };
 
 genotower.monster.checkFacing = function () {
-    var currentSpace = genotower.path.getPath()[this.spacesWalked],
-        nextSpace = genotower.path.getPath()[this.spacesWalked + 1];
+    var currentSpace = genotower.path.getSquare(this.spacesWalked),
+        nextSpace = genotower.path.getSquare(this.spacesWalked + 1);
 
     if (nextSpace.x < currentSpace.x) {
 
@@ -95,7 +95,7 @@ genotower.monster.walk = function () {
         }
     }
 
-    else if (genotower.path.getPath()[this.spacesWalked + 1]) {
+    else if (genotower.path.getSquare(this.spacesWalked + 1)) {
         direction = this.checkFacing();
         this.setFacing(direction);
         this.moveDirection(direction);

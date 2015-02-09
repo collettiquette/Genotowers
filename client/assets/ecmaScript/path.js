@@ -1,5 +1,8 @@
 genotower.path = (function () {
-    var currentPath = null;
+    var currentPath = null,
+        getPath = function () {
+            return currentPath;
+        };
 
     return {
         translateTiles : function () {
@@ -38,12 +41,12 @@ genotower.path = (function () {
             }
         },
 
-        getPath : function () {
-            return currentPath;
+        getLength : function () {
+            return getPath().length;
         },
 
-        getLength : function () {
-            return this.getPath().length;
+        getSquare : function (positionOnPath) {
+            return getPath()[positionOnPath];
         },
 
         toggleWaypoints : function (bool) {
@@ -52,7 +55,7 @@ genotower.path = (function () {
                 max;
 
             this.setPath(this.translateTiles());
-            path = this.getPath();
+            path = getPath();
             max = this.getLength();
 
             for (i = 0; i < max; i += 1) {
@@ -60,7 +63,7 @@ genotower.path = (function () {
             }
         },
 
-        isValid : function () {
+        isValid () {
             genotower.path.setPath(genotower.path.translateTiles());
 
             return !(this.getLength() === 0);

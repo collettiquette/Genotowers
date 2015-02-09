@@ -19,6 +19,6 @@ genotower.generation = {
 
     scoreFitness : function () {
         
-        return genotower.path.getPath().length;
+        return genotower.path.getLength();
     }
 };
