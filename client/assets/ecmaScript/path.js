@@ -1,11 +1,10 @@
 genotower.path = (function () {
     var currentPath = null,
         getPath = function () {
-            return currentPath;
-        };
 
-    return {
-        translateTiles : function () {
+            return currentPath;
+        },
+        translateTiles = function () {
             var x = 0,
                 y = 0,
                 grid = [];
@@ -18,15 +17,17 @@ genotower.path = (function () {
                 });
 
             return grid;
-        },
+        };
 
-        setPath : function (grid) {
+    return {
+
+        setPath : function () {
             var i = 0,
                 max,
                 tempX,
                 tempY;
 
-            currentPath = genotower.aStar(grid,
+            currentPath = genotower.aStar(translateTiles(),
                     [genotower.config.START_X, genotower.config.START_Y],
                     [genotower.config.END_X, genotower.config.END_Y]);
             max = currentPath.length;
@@ -54,7 +55,7 @@ genotower.path = (function () {
                 path,
                 max;
 
-            this.setPath(this.translateTiles());
+            this.setPath(translateTiles());
             path = getPath();
             max = this.getLength();
 
@@ -64,7 +65,7 @@ genotower.path = (function () {
         },
 
         isValid () {
-            genotower.path.setPath(genotower.path.translateTiles());
+            genotower.path.setPath(translateTiles());
 
             return !(this.getLength() === 0);
         }

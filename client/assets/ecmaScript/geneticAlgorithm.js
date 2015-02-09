@@ -2,16 +2,10 @@ genotower.geneticAlgorithm = {
 
     evolve : function () {
         var i = 0,
-            mutationInstructions,
             max,
             bestScore = genotower.generation.scoreFitness(),
-            wallMutationInstructions =
-                    genotower.generation.mutateGenome(genotower.walls),
-            towerMutationInstructions =
-                    genotower.generation.mutateGenome(genotower.towers);
+            mutationInstructions = genotower.maze.getMutationInstructions();
 
-        mutationInstructions =
-                wallMutationInstructions.concat(towerMutationInstructions);
         max = mutationInstructions.length;
         console.log(genotower.generation.scoreFitness());
         genotower.path.toggleWaypoints(false);
@@ -21,14 +15,14 @@ genotower.geneticAlgorithm = {
                     mutationInstructions[i].tile2);
         }
 
-        genotower.path.setPath(genotower.path.translateTiles());
+        genotower.path.setPath();
 
         if (bestScore > genotower.generation.scoreFitness()) {
 
    	        for (i = max - 1; i >= 0; i -= 1) {
             	genotower.map.swapTiles(mutationInstructions[i].tile2,
                         mutationInstructions[i].tile1);
-       	        genotower.path.setPath(genotower.path.translateTiles());
+       	        genotower.path.setPath();
             }
         }
         genotower.path.toggleWaypoints(true);
@@ -38,3 +32,4 @@ genotower.geneticAlgorithm = {
                 genotower.hoarde.charge();
     }
 };
+
