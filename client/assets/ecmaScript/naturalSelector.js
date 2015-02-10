@@ -20,6 +20,6 @@ genotower.naturalSelector = {
         genotower.config.MONSTER_COUNT === 0 ? 
                 setTimeout(genotower.naturalSelector.evolve, 1) :
                 genotower.hoarde.charge();
-    },
+    }
 };
 
