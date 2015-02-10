@@ -89,10 +89,7 @@ genotower.monster.walk = function () {
 
     if (this.spacesWalked + 1  >= genotower.path.getLength()) {
         this.destroy();
-        
-        if (genotower.hoarde.isDead()) {
-            genotower.naturalSelector.evolve();
-        }
+        genotower.hoarde.checkRanks();
     }
 
     else if (genotower.path.getSquare(this.spacesWalked + 1)) {
@@ -114,7 +111,7 @@ genotower.monster.checkDeath = function () {
     }
 };
 
-genotower.monster.isDead = function () {
-    return !this.sprite.exists;
+genotower.monster.isLive = function () {
+    return this.sprite.exists;
 };
 

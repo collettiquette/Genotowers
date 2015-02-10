@@ -2,6 +2,7 @@ genotower.hoarde = (function () {
     monsters = [];
 
     return {
+
         create : function () {    
             var i = 0,
                 currentMonster;
@@ -35,19 +36,22 @@ genotower.hoarde = (function () {
             }
         },
 
-        isDead : function () {
+        checkRanks : function () {
             var i = 0,
                 max = monsters.length,
-                status = false;
+                liveMonsters;
 
             for (i = 0; i < max; i += 1) {
 
-                if (monsters[i].isDead()) {
-                    status = true;
+                if (monsters[i].isLive()) {
+                    liveMonsters = true;
                 }
             }
 
-            return status;
+            if (liveMonsters !== true) {
+                genotower.naturalSelector.evolve();
+            }
         }
     };
 }());
+
