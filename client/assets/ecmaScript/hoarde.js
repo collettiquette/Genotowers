@@ -9,7 +9,7 @@ genotower.hoarde = (function () {
         
             while (i < genotower.config.MONSTER_COUNT) {
                 currentMonster = Object.create(genotower.monster);
-                currentMonster.initializeMonster();
+                currentMonster.create();
                 monsters.push(currentMonster);
                 i += 1;
             }

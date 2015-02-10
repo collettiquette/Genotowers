@@ -3,13 +3,13 @@ genotower.monster = Object.create(genotower.animationContainer);
 genotower.monster.health = genotower.config.MONSTER_HEALTH;
 genotower.monster.spacesWalked = 0;
 
-genotower.monster.initializeMonster = function () {
+genotower.monster.create = function () {
     this.place('monster');
     this.sprite.anchor.setTo(0.5, 0.5);
-    this.destroy();
+    this.kill();
 };
 
-genotower.monster.destroy = function () {
+genotower.monster.kill = function () {
     this.sprite.exists = false;
 };
 
@@ -78,7 +78,7 @@ genotower.monster.checkFacing = function () {
 
         return 'north';
 
-    } else {
+    } else if (nextSpace.y > currentSpace.y) {
 
         return 'south';
     }
@@ -87,12 +87,9 @@ genotower.monster.checkFacing = function () {
 genotower.monster.walk = function () {
     var direction;
 
-    if (this.spacesWalked + 1  >= genotower.path.getLength()) {
-        this.destroy();
-        genotower.hoarde.checkRanks();
-    }
+    this.checkDeath();
 
-    else if (genotower.path.getSquare(this.spacesWalked + 1)) {
+    if (this.isLive()) {
         direction = this.checkFacing();
         this.setFacing(direction);
         this.moveDirection(direction);
@@ -106,8 +103,10 @@ genotower.monster.takeDamage = function (amount) {
 };
 
 genotower.monster.checkDeath = function () {
-    if (this.health < 1) {
-        this.destroy();
+    if (this.health < 1 || this.spacesWalked + 1 >= 
+            genotower.path.getLength()) {
+        this.kill();
+        genotower.hoarde.checkRanks();
     }
 };
 
