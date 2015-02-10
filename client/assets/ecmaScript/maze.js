@@ -1,7 +1,7 @@
 genotower.maze = (function () {
     var walls = [],
         towers = [],
-        placeObstacle = function (obstacle, count) {
+        generateGenome = function (obstacle, count) {
             var i = 0,
                 randomPosition,
                 currentObstacle,
@@ -25,6 +25,22 @@ genotower.maze = (function () {
             }
 
             return obstacleList;
+        },
+        mutateGenome = function (obstacles) {
+            var i = 0,
+                max = obstacles.length,
+                oldTile = null,
+                mutations = [];
+
+            for (i = 0; i < max; i += 1) {
+
+                if (obstacles[i].shouldMutate(genotower.config.MUTATION_RATE)) {
+                    mutations.push(obstacles[i].mutate(
+                            genotower.config.MUTATION_DEGREE));
+                }
+            }
+
+            return mutations;
         };
 
     return {
@@ -33,17 +49,17 @@ genotower.maze = (function () {
 
             do {
                 genotower.map.initialize();
-                walls = placeObstacle(genotower.wall, genotower.config.WALL_AMOUNT);
-                towers = placeObstacle(genotower.tower, genotower.config.TOWER_AMOUNT);
+                walls = generateGenome(genotower.wall, genotower.config.WALL_AMOUNT);
+                towers = generateGenome(genotower.tower, genotower.config.TOWER_AMOUNT);
                 genotower.path.setPath();
             } while (!genotower.path.isValid())
             genotower.map.draw();
         },
 
         getMutationInstructions : function () {
-            var towerMutations = genotower.generation.mutateGenome(towers),
-                wallMutations = genotower.generation.mutateGenome(walls);
-            
+            var towerMutations = mutateGenome(towers),
+                wallMutations = mutateGenome(walls);
+
             return wallMutations.concat(towerMutations);
         }
     };

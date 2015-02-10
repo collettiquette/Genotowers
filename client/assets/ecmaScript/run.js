@@ -1,7 +1,6 @@
 genotower.run = {
 
     start : function () {
-        console.log(genotower.run);
         genotower.run.game = new Phaser.Game(genotower.config.SCREEN_WIDTH,
                 genotower.config.SCREEN_HEIGHT, Phaser.AUTO,
                 'genotowerDefense', {preload: genotower.run.preload, create:
@@ -55,3 +54,4 @@ genotower.run = {
 
     }
 };
+
