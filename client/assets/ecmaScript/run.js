@@ -51,7 +51,6 @@ genotower.run = {
         genotower.hoarde.create();
  
         setTimeout(genotower.geneticAlgorithm.evolve, 1000);
-
     }
 };
 
