@@ -26,3 +26,4 @@ genotower.chromosome.syncSpritePosition = function () {
     this.sprite.x = this.translatePosition(this.x);
     this.sprite.y = this.translatePosition(this.y);
 };
+

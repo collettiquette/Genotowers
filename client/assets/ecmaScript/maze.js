@@ -5,7 +5,7 @@ genotower.maze = (function () {
             var i = 0,
                 randomPosition,
                 currentObstacle,
-                obstacleList = [];
+                obstacles = [];
 
             for (i = 0; i < count; i += 1) {
                 currentObstacle = Object.create(obstacle);
@@ -21,10 +21,10 @@ genotower.maze = (function () {
                 genotower.map.setTile(randomPosition.x, randomPosition.y,
                         currentObstacle);
                 currentObstacle.setPosition(randomPosition.x, randomPosition.y);
-                obstacleList.push(currentObstacle);
+                obstacles.push(currentObstacle);
             }
 
-            return obstacleList;
+            return obstacles;
         },
         mutateGenome = function (obstacles) {
             var i = 0,
