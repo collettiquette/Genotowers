@@ -1,6 +1,7 @@
 genotower.maze = (function () {
     var walls = [],
         towers = [],
+        cachedMutations = [],
         generateGenome = function (obstacle, count) {
             var i = 0,
                 randomPosition,
@@ -56,11 +57,27 @@ genotower.maze = (function () {
             genotower.map.draw();
         },
 
-        getMutationInstructions : function () {
-            var towerMutations = mutateGenome(towers),
-                wallMutations = mutateGenome(walls);
+        mutate : function () {
+            var mutations = mutateGenome(walls).concat(mutateGenome(towers)),
+                i = 0,
+                max = mutations.length;
 
-            return wallMutations.concat(towerMutations);
+            for (i = 0; i < max; i += 1) {
+                genotower.map.swapTiles(mutations[i].tile1,
+                        mutations[i].tile2);
+            }
+            genotower.path.setPath();
+            cachedMutations = mutations;
+        },
+
+        discardMutations : function () {
+            var i;
+
+   	    for (i = cachedMutations.length - 1; i >= 0; i -= 1) {
+                genotower.map.swapTiles(cachedMutations[i].tile2,
+                        cachedMutations[i].tile1);
+            }
+            genotower.path.setPath();
         }
     };
 }());

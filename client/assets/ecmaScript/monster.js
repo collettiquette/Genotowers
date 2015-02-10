@@ -91,7 +91,7 @@ genotower.monster.walk = function () {
         this.destroy();
         
         if (genotower.hoarde.isDead()) {
-            genotower.geneticAlgorithm.evolve();
+            genotower.naturalSelector.evolve();
         }
     }
 

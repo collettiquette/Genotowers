@@ -50,7 +50,7 @@ genotower.run = {
         genotower.maze.create();
         genotower.hoarde.create();
  
-        setTimeout(genotower.geneticAlgorithm.evolve, 1000);
+        setTimeout(genotower.naturalSelector.evolve, 1000);
     }
 };
 
