@@ -48,7 +48,7 @@ genotower.run = {
 
     create : function () {
         genotower.maze.create();
-        genotower.hoarde.create();
+        genotower.horde.create();
  
         setTimeout(genotower.naturalSelector.evolve, 1000);
     }

@@ -106,7 +106,7 @@ genotower.monster.checkDeath = function () {
     if (this.health < 1 || this.spacesWalked + 1 >= 
             genotower.path.getLength()) {
         this.kill();
-        genotower.hoarde.checkRanks();
+        genotower.horde.checkRanks();
     }
 };
 

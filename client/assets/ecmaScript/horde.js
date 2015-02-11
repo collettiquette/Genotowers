@@ -1,4 +1,4 @@
-genotower.hoarde = (function () {
+genotower.horde = (function () {
     monsters = [];
 
     return {
