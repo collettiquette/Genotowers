@@ -1,5 +1,5 @@
 genotower.horde = (function () {
-    monsters = [];
+    var monsters = [];
 
     return {
 
