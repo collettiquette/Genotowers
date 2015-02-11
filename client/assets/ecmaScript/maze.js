@@ -70,7 +70,7 @@ genotower.maze = (function () {
             cachedMutations = mutations;
         },
 
-        discardMutations : function () {
+        discardLastMutation : function () {
             var i;
 
    	    for (i = cachedMutations.length - 1; i >= 0; i -= 1) {
@@ -78,6 +78,7 @@ genotower.maze = (function () {
                         cachedMutations[i].tile1);
             }
             genotower.path.setPath();
+            cachedMutations = [];
         }
     };
 }());

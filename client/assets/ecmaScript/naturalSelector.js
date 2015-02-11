@@ -13,7 +13,7 @@ genotower.naturalSelector = {
         genotower.maze.mutate();
 
         if (bestScore > genotower.naturalSelector.scoreFitness()) {
-            genotower.maze.discardMutations();
+            genotower.maze.discardLastMutation();
         }
         genotower.path.toggleWaypoints(true);
 
