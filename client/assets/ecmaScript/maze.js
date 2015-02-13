@@ -62,22 +62,28 @@ genotower.maze = (function () {
                 i = 0,
                 max = mutations.length;
 
+            genotower.path.toggleWaypoints(false);
+
             for (i = 0; i < max; i += 1) {
                 genotower.map.swapTiles(mutations[i].tile1,
                         mutations[i].tile2);
             }
             genotower.path.setPath();
+            genotower.path.toggleWaypoints(true);
             cachedMutations = mutations;
         },
 
         discardLastMutation : function () {
             var i;
 
+            genotower.path.toggleWaypoints(false);
+
    	    for (i = cachedMutations.length - 1; i >= 0; i -= 1) {
                 genotower.map.swapTiles(cachedMutations[i].tile2,
                         cachedMutations[i].tile1);
             }
             genotower.path.setPath();
+            genotower.path.toggleWaypoints(true);
             cachedMutations = [];
         }
     };
