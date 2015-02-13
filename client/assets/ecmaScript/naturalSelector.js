@@ -1,23 +1,30 @@
-genotower.naturalSelector = {
+genotower.naturalSelector = (function () {
+    var bestScore;
 
-    scoreFitness : function () {
+    return {
 
-        return genotower.path.getLength();
-    },
+        scoreFitness : function () {
 
-    evolve : function () {
-        var bestScore = genotower.naturalSelector.scoreFitness();
+            return genotower.path.getLength();
+        },
 
-        console.log(genotower.naturalSelector.scoreFitness());
-        genotower.maze.mutate();
+        evolve : function () {
+            var newScore;
 
-        if (bestScore > genotower.naturalSelector.scoreFitness()) {
-            genotower.maze.discardLastMutation();
+            if (!bestScore) {
+                bestScore = genotower.naturalSelector.scoreFitness();
+            }
+
+            console.log(bestScore);
+            genotower.maze.mutate();
+            newScore = genotower.naturalSelector.scoreFitness();
+
+            (bestScore > newScore) ? genotower.maze.discardLastMutation() : 
+                    bestScore = newScore;
+
+            genotower.config.MONSTER_COUNT === 0 ? 
+                    setTimeout(genotower.naturalSelector.evolve, 1) :
+                    genotower.horde.charge();
         }
-
-        genotower.config.MONSTER_COUNT === 0 ? 
-                setTimeout(genotower.naturalSelector.evolve, 1) :
-                genotower.horde.charge();
-    }
-};
-
+    };
+}());
