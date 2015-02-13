@@ -8,12 +8,12 @@ genotower.config = {
     MONSTER_WOUNDED_IMAGE : "assets/images/monsterWounded.png",
     
     MONSTER_COUNT : 0,
-    MONSTER_HEALTH : 10,
+    MONSTER_HEALTH : 50,
     MONSTER_SPACING : 1,
 
     TICK_SPEED : 10,
     
-    MUTATION_RATE : .05,
+    MUTATION_RATE : .1,
     MUTATION_DEGREE : 2,
 
     TOWER_AMOUNT : 10,

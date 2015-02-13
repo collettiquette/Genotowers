@@ -5,26 +5,20 @@ genotower.naturalSelector = (function () {
 
         scoreFitness : function () {
 
-            return genotower.path.getLength();
+            genotower.config.MONSTER_COUNT === 0 ? setTimeout(genotower.
+                    naturalSelector.evolve.bind(null, 
+                    genotower.path.getLength()), genotower.config.TICK_SPEED) :
+                    genotower.horde.charge();
         },
 
-        evolve : function () {
-            var newScore;
-
-            if (!bestScore) {
-                bestScore = genotower.naturalSelector.scoreFitness();
-            }
-
+        evolve : function (newScore) {
+            bestScore = bestScore || newScore;
             console.log(bestScore);
-            genotower.maze.mutate();
-            newScore = genotower.naturalSelector.scoreFitness();
 
             (bestScore > newScore) ? genotower.maze.discardLastMutation() : 
                     bestScore = newScore;
-
-            genotower.config.MONSTER_COUNT === 0 ? 
-                    setTimeout(genotower.naturalSelector.evolve, 1) :
-                    genotower.horde.charge();
+            genotower.maze.mutate();
+            genotower.naturalSelector.scoreFitness();
         }
     };
 }());

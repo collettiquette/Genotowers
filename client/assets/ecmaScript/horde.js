@@ -1,5 +1,6 @@
 genotower.horde = (function () {
     var monsters = [],
+        cumulativeDamage = 0,
         iterateOverMonsters = function (callback) {
             var i = 0;
 
@@ -24,6 +25,7 @@ genotower.horde = (function () {
             var spawnTime,
                 currentMonster;
 
+            cumulativeDamage = 0;
             iterateOverMonsters(function (i) {  
                 currentMonster = monsters[i];
                 spawnTime = (i * genotower.config.TICK_SPEED * 
@@ -31,7 +33,6 @@ genotower.horde = (function () {
                 currentMonster.sprite.x = 0;
                 currentMonster.sprite.y = 0;
                 currentMonster.spacesWalked = 0;
-
                 setTimeout(function () {
                     currentMonster.spawn();
                 }, spawnTime);
@@ -49,8 +50,12 @@ genotower.horde = (function () {
             });
 
             if (liveMonsters !== true) {
-                genotower.naturalSelector.evolve();
+                genotower.naturalSelector.evolve(cumulativeDamage);
             }
+        },
+
+        takeDamage : function (amount) {
+            cumulativeDamage += amount;
         }
     };
 }());

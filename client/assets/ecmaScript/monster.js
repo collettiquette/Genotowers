@@ -94,11 +94,15 @@ genotower.monster.walk = function () {
         this.setFacing(direction);
         this.moveDirection(direction);
         this.spacesWalked += 1;
+
+        // Damage is dealt by walking as a temporary stand-in for missiles.
+        this.takeDamage(1);
     }
 };
 
 genotower.monster.takeDamage = function (amount) {
     this.health -= amount;
+    genotower.horde.takeDamage(amount);
     this.checkDeath;
 };
 

@@ -32,18 +32,25 @@ genotower.angularApp.controller("genotowerCtrl", function ($scope) {
             max: 10
         },
         {
-            title: "Monster Count",
+            title: "Tick Speed",
+            value: 10,
+            sign: " milliseconds",
+            min: 1,
+            max: 1000
+        },
+        {
+            title: "Number of Monsters",
             value: 0,
             sign: "",
             min: 0,
             max: 1
         },
         {
-            title: "Tick Speed",
-            value: 10,
-            sign: " milliseconds",
+            title: "Monster Health",
+            value: 50,
+            sign: "HP",
             min: 1,
-            max: 1000
+            max: 100
         }
     ];
 
@@ -54,8 +61,9 @@ genotower.angularApp.controller("genotowerCtrl", function ($scope) {
         genotower.config.WALL_AMOUNT = ($scope.userSettings[1].value);
         genotower.config.MUTATION_RATE = ($scope.userSettings[2].value / 100);
         genotower.config.MUTATION_DEGREE = ($scope.userSettings[3].value);
-        genotower.config.MONSTER_COUNT = ($scope.userSettings[4].value);
-        genotower.config.TICK_SPEED = ($scope.userSettings[5].value);
+        genotower.config.TICK_SPEED = ($scope.userSettings[4].value);
+        genotower.config.MONSTER_COUNT = ($scope.userSettings[5].value);
+        genotower.config.MONSTER_HEALTH = ($scope.userSettings[6].value);
 
         $scope.startGame = function () {};
         $scope.buttonText = "Evolution in progress...";
