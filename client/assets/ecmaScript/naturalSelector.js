@@ -3,7 +3,7 @@ genotower.naturalSelector = (function () {
 
     return {
 
-        scoreFitness : function () {
+        exertPressure : function () {
 
             genotower.config.MONSTER_COUNT === 0 ? setTimeout(genotower.
                     naturalSelector.evolve.bind(null, 
@@ -11,14 +11,16 @@ genotower.naturalSelector = (function () {
                     genotower.horde.charge();
         },
 
-        evolve : function (newScore) {
-            bestScore = bestScore || newScore;
-            console.log(bestScore);
+        evolve : function (fitnessScore) {
+            bestScore = bestScore || fitnessScore;
+            console.log("Best Score: " + bestScore + 
+                    ",            Mutations Since Last Progression:");
 
-            (bestScore > newScore) ? genotower.maze.discardLastMutation() : 
-                    bestScore = newScore;
+            (bestScore > fitnessScore) ? genotower.maze.discardLastMutation() :
+                    bestScore = fitnessScore;
             genotower.maze.mutate();
-            genotower.naturalSelector.scoreFitness();
+            genotower.naturalSelector.exertPressure();
         }
     };
 }());
+

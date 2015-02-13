@@ -50,7 +50,7 @@ genotower.run = {
         genotower.maze.create();
         genotower.horde.create();
  
-        setTimeout(genotower.naturalSelector.scoreFitness, 1000);
+        setTimeout(genotower.naturalSelector.exertPressure, 1000);
     }
 };
 

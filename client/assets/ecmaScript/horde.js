@@ -21,6 +21,10 @@ genotower.horde = (function () {
             });
         },
 
+        takeDamage : function (amount) {
+            cumulativeDamage += amount;
+        },
+
         charge : function () {
             var spawnTime,
                 currentMonster;
@@ -52,10 +56,6 @@ genotower.horde = (function () {
             if (liveMonsters !== true) {
                 genotower.naturalSelector.evolve(cumulativeDamage);
             }
-        },
-
-        takeDamage : function (amount) {
-            cumulativeDamage += amount;
         }
     };
 }());
