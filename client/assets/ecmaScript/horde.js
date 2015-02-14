@@ -44,18 +44,16 @@ genotower.horde = (function () {
         },
 
         checkRanks : function () {
-            var liveMonsters;
+            var i = 0;
 
-            iterateOverMonsters(function (i) {
+            for (i = 0; i < genotower.config.MONSTER_COUNT; i += 1) {
 
                 if (monsters[i].isLive()) {
-                    liveMonsters = true;
-                }
-            });
 
-            if (liveMonsters !== true) {
-                genotower.naturalSelector.evolve(cumulativeDamage);
+                    return;
+                }
             }
+            genotower.naturalSelector.evolve(cumulativeDamage);
         }
     };
 }());
