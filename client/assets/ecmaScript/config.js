@@ -32,3 +32,6 @@ genotower.config.START_X = 0;
 genotower.config.START_Y = (genotower.config.MAP_HEIGHT - 1);
 genotower.config.END_X = (genotower.config.MAP_HEIGHT - 1);
 genotower.config.END_Y = 0;
+
+genotower.config.SPAWN_TIME = (genotower.config.TICK_SPEED *
+                               genotower.config.MONSTER_SPACING);

@@ -27,6 +27,12 @@ genotower.monster.spawn = function () {
             genotower.config.TICK_SPEED);
 };
 
+genotower.monster.charge = function() {
+    this.sprite.x = 0;
+    this.sprite.y = 0;
+    this.spacesWalked = 0;
+};
+
 genotower.monster.setFacing = function (facingDirection) {
 // Phaser rotations are in radians.
     switch (facingDirection) {
